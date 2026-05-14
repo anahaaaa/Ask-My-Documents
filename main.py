@@ -10,6 +10,17 @@ from src.pipelines.processing_pipeline import (
     process_chunk
 )
 
+from src.retrieval.retrieval_testing import (
+    test_retrieval
+)
+
+from src.retrieval.retriever import (
+    create_retriever
+)
+
+from src.vectorstore.chroma_store import (
+    create_vectorstore
+)
 
 # INPUT DOCUMENT
 
@@ -63,6 +74,21 @@ for idx, chunk in enumerate(chunks):
 
 print(
     f"Processed {len(processed_docs)} chunks"
+)
+
+# CREATE VECTORSTORE
+
+
+vectorstore = create_vectorstore(
+    processed_docs
+)
+
+
+# CREATE RETRIEVER
+
+
+retriever = create_retriever(
+    vectorstore
 )
 
 query = "What is the Transformer architecture?"
