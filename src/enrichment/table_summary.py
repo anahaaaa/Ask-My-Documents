@@ -83,7 +83,7 @@ def summarize_table(
     table_html
 ):
 
-    table_text = clean_table_html(
+    table_text = clean_tablehtml(
         table_html
     )
 
